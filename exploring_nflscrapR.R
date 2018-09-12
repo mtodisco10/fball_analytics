@@ -79,3 +79,11 @@ with(subset(big_play_df_merge, next_season_wins != 'NA'), cor(big_plays, next_se
 library(corrplot)
 M <- cor(big_play_df_merge[,c('big_plays','W','SoS','SRS','OSRS','DSRS','PRE_OU')])
 corrplot(M)
+
+####### Interceptions
+interceptions_by_year <- full_pbp %>%
+  filter(posteam != "") %>%
+  group_by(year) %>%
+  summarise(interceptions = sum(InterceptionThrown))
+
+interceptions_by_year
