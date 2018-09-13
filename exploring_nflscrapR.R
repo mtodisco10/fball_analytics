@@ -83,7 +83,8 @@ corrplot(M)
 ####### Interceptions
 interceptions_by_year <- full_pbp %>%
   filter(posteam != "") %>%
-  group_by(year) %>%
+  group_by(year, DefensiveTeam) %>%
   summarise(interceptions = sum(InterceptionThrown))
 
 interceptions_by_year
+
